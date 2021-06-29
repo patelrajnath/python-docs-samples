@@ -27,7 +27,10 @@ Examples:
 """
 
 import argparse
+import os
 import uuid
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "Chatbot-012b76b52f9f.json"
 
 
 # [START dialogflow_detect_intent_text]
@@ -52,7 +55,9 @@ def detect_intent_texts(project_id, session_id, texts, language_code):
             session=session, query_input=query_input)
 
         print('=' * 20)
+        # print(response)
         print('Query text: {}'.format(response.query_result.query_text))
+        print('Query Entities: {0}'.format(response.query_result.parameters))
         print('Detected intent: {} (confidence: {})\n'.format(
             response.query_result.intent.display_name,
             response.query_result.intent_detection_confidence))
