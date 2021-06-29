@@ -14,7 +14,7 @@
 
 # Default TEST_CONFIG_OVERRIDE for python repos.
 
-# You can copy this file into your directory, then it will be inported from
+# You can copy this file into your directory, then it will be imported from
 # the noxfile.py.
 
 # The source of truth:
@@ -54,6 +54,9 @@ def get_cloud_kms_key():
                 'keyRings/gcs-kms-key-ring/cryptoKeys/gcs-kms-key')
     if session == 'py-3.8':
         return ('projects/python-docs-samples-tests-py38/locations/us/'
+                'keyRings/gcs-kms-key-ring/cryptoKeys/gcs-kms-key')
+    if session == 'py-3.9':
+        return ('projects/python-docs-samples-tests-py39/locations/us/'
                 'keyRings/gcs-kms-key-ring/cryptoKeys/gcs-kms-key')
     return os.environ['CLOUD_KMS_KEY']
 
